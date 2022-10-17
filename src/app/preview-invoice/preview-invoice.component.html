@@ -1,0 +1,41 @@
+<ng-container *ngIf="companyDataService.companyData$ | async as company">
+  <div>
+    <h2>{{ company.name }}</h2>
+    <h4>Address: {{ company.address }}</h4>
+    <h4>Phones: {{ company.phones.join(", ") }}</h4>
+  </div>
+  <hr />
+  <ng-container
+    *ngIf="invoiceService.invoicePreview$ | async as invoicePreview"
+  >
+    <div *ngIf="invoicePreview.length > 0; else noData">
+      <table>
+        <tr>
+          <th>Name:</th>
+          <th>Count:</th>
+          <th>Price:</th>
+        </tr>
+
+        <tr *ngFor="let product of invoicePreview">
+          <td>
+            {{ product.name }}
+          </td>
+          <td>
+            {{ product.count }}
+          </td>
+          <td>
+            {{ product.price }}
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Total cost:</td>
+          <td>
+            {{ invoiceService.getInvoiceTotalCost() | async }}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <ng-template #noData> No items</ng-template>
+  </ng-container>
+</ng-container>

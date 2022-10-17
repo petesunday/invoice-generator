@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+.spaced-t {
+  margin-top: 16px;
+}
+.spaced-b {
+  margin-bottom: 16px;
+}
+.spaced-r {
+  margin-right: 16px;
+}
+.spaced-l {
+  margin-left: 16px;
+}
+
+input {
+  min-width: 260px;
+  min-height: 30px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  &,
+  :focus {
+    outline: none;
+  }
+}
+
+input.ng-touched.ng-invalid {
+  border-bottom: red 2px solid;
+}
+
+input.ng-invalid:focus {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0 30vh;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

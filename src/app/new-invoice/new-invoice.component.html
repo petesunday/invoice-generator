@@ -1,0 +1,51 @@
+<form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+  <ng-container formArrayName="products">
+    <ng-container *ngFor="let lessonForm of products.controls; let i = index">
+      <div class="form-row" [formGroup]="productControls[i]">
+        <div class="form-row-grid">
+          <div class="form-row-grid-item">
+            <label for="name">Name:</label>
+            <input formControlName="name" placeholder="Name" />
+            <div class="error-message" *ngIf="isFieldInvalid(i, 'name')">
+              <app-error-message
+                [fControl]="productControls[i].controls['name']"
+                [min]="3"
+                [max]="30"
+              ></app-error-message>
+            </div>
+          </div>
+          <div class="form-row-grid-item">
+            <label for="count">Count:</label>
+            <input formControlName="count" placeholder="Count" />
+            <div class="error-message" *ngIf="isFieldInvalid(i, 'count')">
+              <app-error-message
+                [fControl]="productControls[i].controls['count']"
+                [min]="1"
+                [max]="100"
+              ></app-error-message>
+            </div>
+          </div>
+          <div class="form-row-grid-item">
+            <label for="price">Price:</label>
+            <input formControlName="price" placeholder="Price" />
+            <div class="error-message" *ngIf="isFieldInvalid(i, 'price')">
+              <app-error-message
+                [fControl]="productControls[i].controls['price']"
+                [min]="1"
+                [max]="1000000"
+              ></app-error-message>
+            </div>
+          </div>
+          <div class="form-row-grid-item button-container">
+            <button class="text-button" (click)="deleteProduct(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <button type="button" class="primary-button spaced-r" (click)="addProduct()">
+    Add Product
+  </button>
+  <button type="submit" class="primary-button">Submit</button>
+</form>

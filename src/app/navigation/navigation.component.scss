@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  border-bottom: 2px solid black;
+}
+
+li a {
+  display: block;
+  padding: 8px;
+}
+
+li a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: lavenderblush;
+}
+
+a:active {
+  text-decoration: none;
+  color: purple;
+}
+
+.active-link {
+  background-color: purple;
+  border-bottom: 2px solid lavenderblush;
+  a {
+    color: white;
+  }
+  :hover {
+    background-color: purple;
+  }
+}

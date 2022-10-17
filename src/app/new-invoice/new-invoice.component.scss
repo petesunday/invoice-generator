@@ -1,0 +1,43 @@
+.form-row-grid {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 8px;
+  &-item {
+    margin-right: 4px;
+    flex: 40px;
+    min-height: 70px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: left;
+}
+
+.text-button {
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  font-weight: bold;
+  color: purple;
+  font-size: larger;
+}
+
+.primary-button {
+  background-color: purple;
+  color: white;
+  border: 2px solid purple;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+::ng-deep snack-bar-container.invoice-snackbar {
+  background: purple;
+}
+
+::ng-deep .invoice-snackbar .mat-simple-snackbar {
+  color: white;
+}
